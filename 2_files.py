@@ -16,7 +16,27 @@ def main():
     Эта функция вызывается автоматически при запуске скрипта в консоли
     В ней надо заменить pass на ваш код
     """
-    pass
+    with open('referat.txt', 'r', encoding='utf-8') as f:
+        number_of_words = 0
+        string_length = 0
+        
+        for line in f:
+            line = line.lower()
+            line = line.replace('\n','')
+            number_of_words += len(line.split())
+            string_length += len(line)
+            line = line.replace('.','!')
+            
+        print(f'Коллисество слов в тексте:{number_of_words}')
+        print(f'Длина строки:{string_length}')
+        print(line)
+
+
+    with open('referat2.txt', 'w', encoding='utf-8') as f:
+        f.write(line)
+
+
+
 
 if __name__ == "__main__":
     main()
